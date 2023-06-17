@@ -19,9 +19,8 @@ model aluno {
   updatedAt DateTime @updatedAt
 
   inscricao inscricao[]
-
-
 }
+
 model curso {
   id        Int      @id @default(autoincrement())
   nome      String
@@ -29,23 +28,14 @@ model curso {
   updatedAt DateTime @updatedAt
 
   inscricao inscricao[]
-
 }
 
 model inscricao {
-  id        Int      @id @default(autoincrement())
-  aluno     aluno    @relation(fields: [alunoId], references: [id])
-  alunoId   Int
-  curso     curso    @relation(fields: [cursoId], references: [id])
-  cursoId   Int
-  dataInscricao DateTime @default(now())
+  id               Int      @id @default(autoincrement())
+  aluno            aluno    @relation(fields: [alunoId], references: [id])
+  alunoId          Int
+  curso            curso    @relation(fields: [cursoId], references: [id])
+  cursoId          Int
+  dataInscricao    DateTime @default(now())
   dataCancelamento DateTime @updatedAt
-
-
 }
-
-
-
-
-
-
