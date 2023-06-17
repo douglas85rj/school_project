@@ -1,10 +1,10 @@
 import { Router } from "express";
 
-import { CreateAlunoController } from "./src/controllers/CreateAlunoController";
-import { CreateCursoController } from "./src/controllers/CreateCursoController";
-import { CreateInscricaoController } from "./src/controllers/CreateInscricaoController";
-import { FindAlunoController } from "./src/controllers/FindAlunoController";
-import { FindAlunoCursoController } from "./src/controllers/FindAlunoCursoController";
+import { CreateAlunoController } from "./controllers/CreateAlunoController";
+import { CreateCursoController } from "./controllers/CreateCursoController";
+import { CreateInscricaoController } from "./controllers/CreateInscricaoController";
+import { FindAlunoController } from "./controllers/FindAlunoController";
+import { FindAlunoCursoController } from "./controllers/FindAlunoCursoController";
 
 const router = Router();
 
