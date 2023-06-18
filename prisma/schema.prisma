@@ -19,6 +19,7 @@ model aluno {
   updatedAt DateTime @updatedAt
 
   inscricao inscricao[]
+  @@map("alunos")
 }
 
 model curso {
@@ -28,10 +29,12 @@ model curso {
   updatedAt DateTime @updatedAt
 
   inscricao inscricao[]
+  @@map("cursos")
 }
 
 model inscricao {
   id               Int      @id @default(autoincrement())
+  inscrito         Boolean  @default(false)
   aluno            aluno    @relation(fields: [alunoId], references: [id])
   alunoId          Int
   curso            curso    @relation(fields: [cursoId], references: [id])

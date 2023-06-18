@@ -1,23 +1,28 @@
 import { Request, Response } from "express";
-import { PrismaClient } from "@prisma/client";
+import { prismaClient } from "../database/prismaClient";
 
 export class CreateInscricaoController {
-    async handle(request: Request, response: Response) {
-        const { id_aluno, id_curso } = request.body;
-    
-        const prisma = new PrismaClient();
-    
-        const inscricaoCurso = await prisma.inscricao.create({
-        data: {
-            aluno: {
-            connect: { id: id_aluno },
-            },
-            curso: {
-            connect: { id: id_curso },
-            },
+  async handle(request: Request, response: Response) {
+    const { alunoId, cursoId } = request.body;
+
+    const inscricao = await prismaClient.inscricao.create({
+      data: {
+        alunoId,
+        cursoId,
+        inscrito : true,       
+      },
+      aluno: {
+        connect: {
+          id: alunoId,
         },
-        });
-    
-        return response.json(inscricaoCurso);
-    }
-    }
+      },
+      curso: {
+        connect: {
+          id: cursoId,
+        },
+      },
+    });
+
+    return response.json(inscricao);
+  }
+}
