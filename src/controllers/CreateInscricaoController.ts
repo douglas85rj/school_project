@@ -11,17 +11,9 @@ export class CreateInscricaoController {
         cursoId,
         inscrito : true,       
       },
-      aluno: {
-        connect: {
-          id: alunoId,
-        },
-      },
-      curso: {
-        connect: {
-          id: cursoId,
-        },
-      },
+       
     });
+
 
     return response.json(inscricao);
   }
