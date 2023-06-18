@@ -40,5 +40,5 @@ model inscricao {
   curso            curso    @relation(fields: [cursoId], references: [id])
   cursoId          Int
   dataInscricao    DateTime @default(now())
-  dataCancelamento DateTime @updatedAt
+  dataCancelamento DateTime? 
 }
