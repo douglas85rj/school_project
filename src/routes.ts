@@ -22,7 +22,7 @@ import { Router } from "express";
  router.post("/curso", createCursoController.handle); //(working) Cadastrar curso
  router.post("/inscricao", createInscricaoController.handle);//(working) Cadastrar inscrição Aluno/curso
  router.get("/aluno/:id", findAlunoController.handle); //(working) Buscar aluno por id
- router.get("/curso/:id", findCursoController.handle);//(preview) em testes e construção
+ router.get("/curso/:id", findCursoController.handle);//(working) Listar curso por id
  router.get("/alunos", listAlunosController.handle);//(working) Listar todos os alunos
  router.get("/cursos", listCursosController.handle);//(working) Listar todos os cursos
 
