@@ -34,7 +34,7 @@ model curso {
 
 model inscricao {
   id               Int      @id @default(autoincrement())
-  inscrito         Boolean  @default(false)
+  inscrito         Boolean  @default(true)
   aluno            aluno    @relation(fields: [alunoId], references: [id])
   alunoId          Int
   curso            curso    @relation(fields: [cursoId], references: [id])
