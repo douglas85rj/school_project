@@ -1,14 +1,13 @@
 import { Request, Response } from "express";
-import { PrismaClient } from "@prisma/client";
+import { prismaClient } from "../database/prismaClient";
 
 
 export class CreateAlunoController {
     async handle(request: Request, response: Response) {
         const { nome, email, password} = request.body;
     
-        const prisma = new PrismaClient();
     
-        const aluno = await prisma.aluno.create({
+        const aluno = await prismaClient.aluno.create({
         data: {
             nome,
             email,

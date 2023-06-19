@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
-import { PrismaClient } from "@prisma/client";
+import { prismaClient } from "../database/prismaClient";
 
 export class FindAlunoController {
   async handle(request: Request, response: Response) {
     const { id } = request.params;
 
-    const prisma = new PrismaClient();
 
-    const aluno = await prisma.aluno.findFirst({
+
+    const aluno = await prismaClient.aluno.findFirst({
       where: {
         id: Number(id),
       },

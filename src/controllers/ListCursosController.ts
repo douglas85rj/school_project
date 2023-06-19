@@ -1,14 +1,14 @@
 import { Request,Response } from "express";
-import { PrismaClient } from "@prisma/client";
+
+import { prismaClient } from "../database/prismaClient";
 
 export class ListCursosController {
 
-    async handle(request: Request, response: Response) {
-            
-            const prisma = new PrismaClient();
+    async handle(request: Request, response: Response) {            
+  
             const { id } = request.params;
     
-            const cursos = await prisma.curso.findMany({
+            const cursos = await prismaClient.curso.findMany({
                 include: {
                     inscricao: {
                         include: {
@@ -16,7 +16,7 @@ export class ListCursosController {
                         },
                     },
                 },
-                
+
 
             });
     

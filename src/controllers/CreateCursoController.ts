@@ -1,13 +1,12 @@
 import { Request,Response } from "express";
-import { PrismaClient } from "@prisma/client";
+import { prismaClient } from "../database/prismaClient";
 
 export class CreateCursoController {
     async handle(request: Request, response: Response) {
         const { nome} = request.body;
     
-        const prisma = new PrismaClient();
     
-        const curso = await prisma.curso.create({
+        const curso = await prismaClient.curso.create({
         data: {
             nome,
             

@@ -1,13 +1,13 @@
 import { Request,Response } from "express";
-import { PrismaClient } from "@prisma/client";
+import { prismaClient } from "../database/prismaClient";
 
 export class LisAlunosController {
 
     async handle(request: Request, response: Response) {
             
-            const prisma = new PrismaClient();
+         
     
-            const alunos = await prisma.aluno.findMany({
+            const alunos = await prismaClient.aluno.findMany({
                 include: {
                     inscricao: {
                         include: {
