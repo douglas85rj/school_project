@@ -1,20 +1,20 @@
 import { Request,Response } from "express";
 import { PrismaClient } from "@prisma/client";
 
-export class FindAlunoCursoController {
+export class FindCursoController {
     async handle(request: Request, response: Response) {
         const { id } = request.params;
 
         const prisma = new PrismaClient();
 
-        const curso = await prisma.aluno.findFirst({
+        const curso = await prisma.curso.findFirst({
             where: {
                 id: Number(id),
             },
             include: {
                 inscricao: {
                     include: {
-                        curso: true,
+                        aluno: true,
                     },
                 },
             },
