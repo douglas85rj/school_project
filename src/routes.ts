@@ -5,6 +5,7 @@ import { CreateCursoController } from "./controllers/CreateCursoController";
 import { CreateInscricaoController } from "./controllers/CreateInscricaoController";
 import { FindAlunoController } from "./controllers/FindAlunoController";
 import { FindAlunoCursoController } from "./controllers/FindAlunoCursoController";
+import { FindAlunosCursoController } from "./controllers/FindAlunoCursoController";
 
 const router = Router();
 
@@ -13,12 +14,15 @@ const createCursoController = new CreateCursoController();
 const createInscricaoController = new CreateInscricaoController();
 const findAlunoController = new FindAlunoController();
 const findAlunoCursoController = new FindAlunoCursoController();
+const FindAlunosController = new FindAlunosCursoController();
 
-router.post("/aluno", createAlunoController.handle);
-router.post("/curso", createCursoController.handle);
-router.post("/inscricao", createInscricaoController.handle);
-router.get("/aluno/:id", findAlunoController.handle);
-router.get("/aluno/:id/curso", findAlunoCursoController.handle);
+
+router.post("/aluno", createAlunoController.handle); // (working) Cadastrar aluno
+router.post("/curso", createCursoController.handle); //(working) Cadastrar curso
+router.post("/inscricao", createInscricaoController.handle);//(working) Cadastrar inscrição Aluno/curso
+router.get("/aluno/:id", findAlunoController.handle); //(working) Buscar aluno por id
+router.get("/aluno/:id/curso", findAlunoCursoController.handle);//(preview) em testes e construção
+router.get("/alunos", FindAlunosController.handle);//(preview) em testes e construção
 
 
 export { router };
