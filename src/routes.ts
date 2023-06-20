@@ -18,13 +18,13 @@ import { Router } from "express";
  const listAlunosController = new LisAlunosController();
  const listCursosController = new ListCursosController();
 
- router.post("/aluno", createAlunoController.handle); // (working) Cadastrar aluno
- router.post("/curso", createCursoController.handle); //(working) Cadastrar curso
- router.post("/inscricao", createInscricaoController.handle);//(working) Cadastrar inscrição Aluno/curso
- router.get("/aluno/:id", findAlunoController.handle); //(working) Buscar aluno por id
- router.get("/curso/:id", findCursoController.handle);//(working) Listar curso por id
- router.get("/alunos", listAlunosController.handle);//(working) Listar todos os alunos
- router.get("/cursos", listCursosController.handle);//(working) Listar todos os cursos
+ router.post("/aluno", createAlunoController.handle); 
+ router.post("/curso", createCursoController.handle); 
+ router.post("/inscricao", createInscricaoController.handle);
+ router.get("/aluno/:id", findAlunoController.handle); 
+ router.get("/curso/:id", findCursoController.handle);
+ router.get("/alunos", listAlunosController.handle);
+ router.get("/cursos", listCursosController.handle);
 
 
 export { router };
