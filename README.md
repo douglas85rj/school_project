@@ -3,7 +3,7 @@
 
 Escopo: Criação de API para controle de cadastro e inscrição dos alunos nos cursos.
 
-*criar o arquivo(.env) - Nesse arquivo deve contar a URL de conexão com o banco de dados. O banco de dados utilizado nesse projeto foi o POSTGRESQL*
+*criar o arquivo(.env) - Nesse arquivo deve conter a URL de conexão com o banco de dados. O banco de dados utilizado nesse projeto foi o POSTGRESQL*
 
 Para iniciar e executar o projeto siga as etapas abaixo:
 
