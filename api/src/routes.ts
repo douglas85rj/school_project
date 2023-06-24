@@ -7,6 +7,7 @@ import { Router } from "express";
  import { FindCursoController } from "./controllers/FindCursoController"; 
  import { LisAlunosController } from "./controllers/ListAlunosController";
  import { ListCursosController } from "./controllers/ListCursosController";
+
 //
  const router = Router();
 
@@ -17,6 +18,7 @@ import { Router } from "express";
  const findCursoController = new FindCursoController();
  const listAlunosController = new LisAlunosController();
  const listCursosController = new ListCursosController();
+
 
  router.post("/aluno", createAlunoController.handle); 
  router.post("/curso", createCursoController.handle); 
