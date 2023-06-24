@@ -2,6 +2,9 @@ import { prismaClient } from "../database/prismaClient";
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 
+require("dotenv").config();
+
+
 interface IAuthenticateAlunoRequest {
     email: string;
     password: string;
@@ -33,11 +36,14 @@ class AuthenticateAlunoCase {
             throw new Error('Email/Password incorrect');
         }
 
+        
+
 const token = sign(
             {
                             
-            },
+            },         
             process.env.JWT_SECRET,
+
             {
                 subject: studentAlreadyExists.id,
                 expiresIn: "10000s"
