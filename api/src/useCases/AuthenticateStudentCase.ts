@@ -2,6 +2,9 @@ import { prismaClient } from "../database/prismaClient";
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 
+const JWT_SECRET = process.env.JWT_SECRET;
+//console.log(process.env.JWT_SECRET);
+
 interface IAuthenticateAlunoRequest {
   email: string;
   password: string;
@@ -32,10 +35,10 @@ class AuthenticateStudentCase {
       {
         email: studentAlreadyExists.email,
       },
-      "6b2c48ed-c5f9-4802-bf1f-221edcc4350a",
+      "JWT_SECRET",
       {
+        expiresIn: "20s",
       }
-       
     );
 
     return token;
@@ -43,5 +46,3 @@ class AuthenticateStudentCase {
 }
 
 export { AuthenticateStudentCase };
-
-

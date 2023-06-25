@@ -8,6 +8,7 @@ import { FindCursoController } from "./controllers/FindCursoController";
 import { LisAlunosController } from "./controllers/ListAlunosController";
 import { ListCursosController } from "./controllers/ListCursosController";
 import { AuthenticateStudentController } from "./controllers/AuthenticateStudentController";
+import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
 
 //
 const router = Router();
@@ -27,7 +28,7 @@ router.post("/inscricao", createInscricaoController.handle);
 router.get("/aluno/:id", findAlunoController.handle);
 router.get("/curso/:id", findCursoController.handle);
 router.get("/alunos", listAlunosController.handle);
-router.get("/cursos", listCursosController.handle);
+router.get("/cursos", ensureAuthenticated,listCursosController.handle);
 router.post("/login", authenticateStudentController.handle);
 
 export { router };
