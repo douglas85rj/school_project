@@ -1,4 +1,4 @@
-import { RefreshTokenStudent } from "../useCases/refreshTokenStudent";
+import { RefreshTokenStudent } from "../useCases/RefreshTokenStudent";
 import { Request, Response } from "express";
 
 

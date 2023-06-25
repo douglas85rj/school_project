@@ -27,8 +27,8 @@ model aluno {
 
 model curso {
   id        String      @id @default(uuid())
-  nome      String
-  descricao String      
+  nome      String      
+  descricao String?      
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

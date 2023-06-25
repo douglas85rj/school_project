@@ -33,26 +33,21 @@ class AuthenticateStudentCase {
       throw new Error("Email/Password incorrect");
     }
 
-    // const token = sign(
-    //   {
-    //     email: studentAlreadyExists.email,
-    //   },
-    //   "JWT_SECRET",
-    //   {
-    //     expiresIn: "20s",
-    //   }
-    // );
-
     const generateTokenProvider = new GenerateTokenProvider();
     const token = await generateTokenProvider.execute(studentAlreadyExists.id);
 
+    await prismaClient.refreshToken.deleteMany({
+      where: {
+        alunoId: studentAlreadyExists.id,
+      },
+    });
+
     const generateRefreshToken = new GenerateRefreshToken();
-    const refreshToken = await generateRefreshToken.execute( studentAlreadyExists.id );
+    const refreshToken = await generateRefreshToken.execute(
+      studentAlreadyExists.id
+    );
 
-    
-
-
-    return {token, refreshToken};
+    return { token, refreshToken };
   }
 }
 
