@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { prismaClient } from "../database/prismaClient";
 
-export class FindAlunoController {
+export class FindStudentController {
   async handle(request: Request, response: Response) {
     const { id } = request.params;
 

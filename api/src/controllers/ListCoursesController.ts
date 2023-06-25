@@ -1,23 +1,26 @@
 import { Request,Response } from "express";
+
 import { prismaClient } from "../database/prismaClient";
 
-export class LisAlunosController {
+export class ListCoursesController {
 
-    async handle(request: Request, response: Response) {
-            
-         
+    async handle(request: Request, response: Response) {            
+  
+            const { id } = request.params;
     
-            const alunos = await prismaClient.aluno.findMany({
+            const cursos = await prismaClient.curso.findMany({
                 include: {
                     inscricao: {
                         include: {
-                            curso: true,
+                            aluno: true,
                         },
                     },
                 },
+
+
             });
     
-            return response.json(alunos);
+            return response.json(cursos);
         }
 
 }

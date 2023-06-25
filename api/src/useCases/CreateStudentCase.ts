@@ -8,7 +8,7 @@ interface IAlunoRequest {
     password: string;
 }
 
-class CreateAlunoCase {
+class CreateStudentCase {
     async execute({ nome, email, password }: IAlunoRequest) {
         
 
@@ -36,4 +36,4 @@ class CreateAlunoCase {
     }
 }
 
-export { CreateAlunoCase };
+export { CreateStudentCase };

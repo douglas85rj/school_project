@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
 
-import { CreateAlunoCase } from "../useCases/CreateAlunoCase";
+import { CreateStudentCase } from "../useCases/CreateStudentCase";
 
-export class CreateAlunoController {
+export class CreateStudentController {
   async handle(request: Request, response: Response) {
     const { nome, email, password } = request.body;
 
-    const createAlunoCase = new CreateAlunoCase();
+    const createStudentCase = new CreateStudentCase();
 
-    const aluno = await createAlunoCase.execute({
+    const aluno = await createStudentCase.execute({
       nome,
       email,
       password,

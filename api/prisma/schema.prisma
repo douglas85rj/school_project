@@ -11,12 +11,11 @@ datasource db {
 }
 
 model aluno {
-  id        Int      @id @default(autoincrement())
+  id        String      @id @default(uuid())
   nome      String
   email     String   @unique
   password  String
   refreshToken RefreshToken?
-
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
     
@@ -25,8 +24,9 @@ model aluno {
 }
 
 model curso {
-  id        Int      @id @default(autoincrement())
+  id        String      @id @default(uuid())
   nome      String
+  descricao String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -35,21 +35,21 @@ model curso {
 }
 
 model inscricao {
-  id               Int      @id @default(autoincrement())
+  id               String      @id @default(uuid())
   inscrito         Boolean  @default(true)
   aluno            aluno    @relation(fields: [alunoId], references: [id])
-  alunoId          Int
+  alunoId          String
   curso            curso    @relation(fields: [cursoId], references: [id])
-  cursoId          Int
+  cursoId          String
   dataInscricao    DateTime @default(now())
   dataCancelamento DateTime? 
 }
 
 model RefreshToken {
-  id        Int      @id @default(autoincrement())
+  id        String      @id @default(uuid())
   expiresIn Int 
   aluno     aluno    @relation(fields: [alunoId], references: [id])
-  alunoId   Int      @unique
+  alunoId   String      @unique
  
 
   @@map("refresh_tokens")

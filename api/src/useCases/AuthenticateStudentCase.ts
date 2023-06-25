@@ -1,6 +1,7 @@
 import { prismaClient } from "../database/prismaClient";
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
+import { GenerateRefreshToken } from "../provider/GeneraterefreshToken";
 
 const JWT_SECRET = process.env.JWT_SECRET;
 //console.log(process.env.JWT_SECRET);
@@ -41,7 +42,11 @@ class AuthenticateStudentCase {
       }
     );
 
-    return token;
+    const generateRefreshToken = new GenerateRefreshToken();
+    const refreshToken = await generateRefreshToken.execute(studentAlreadyExists.id);
+
+
+    return {token, refreshToken};
   }
 }
 

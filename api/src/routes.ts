@@ -1,34 +1,34 @@
 import { Router } from "express";
 
-import { CreateAlunoController } from "./controllers/CreateAlunoController";
-import { CreateCursoController } from "./controllers/CreateCursoController";
-import { CreateInscricaoController } from "./controllers/CreateInscricaoController";
-import { FindAlunoController } from "./controllers/FindAlunoController";
-import { FindCursoController } from "./controllers/FindCursoController";
-import { LisAlunosController } from "./controllers/ListAlunosController";
-import { ListCursosController } from "./controllers/ListCursosController";
+import { CreateStudentController } from "./controllers/CreateStudentController";
+import { CreateCourseController } from "./controllers/CreateCourseController";
+import { CreateEnrollmentController } from "./controllers/CreateEnrollmentController";
+import { FindStudentController } from "./controllers/FindStudentController";
+import { FindCourseController } from "./controllers/FindCourseController";
+import { ListStudentsController } from "./controllers/ListStudentsController";
+import { ListCoursesController } from "./controllers/ListCoursesController";
 import { AuthenticateStudentController } from "./controllers/AuthenticateStudentController";
 import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
 
 //
 const router = Router();
 
-const createAlunoController = new CreateAlunoController();
-const createCursoController = new CreateCursoController();
-const createInscricaoController = new CreateInscricaoController();
-const findAlunoController = new FindAlunoController();
-const findCursoController = new FindCursoController();
-const listAlunosController = new LisAlunosController();
-const listCursosController = new ListCursosController();
+const createStudentController = new CreateStudentController();
+const createCourseController = new CreateCourseController();
+const createEnrollmentController = new CreateEnrollmentController();
+const findStudentController = new FindStudentController();
+const findCourseController = new FindCourseController();
+const listStudentsController = new ListStudentsController();
+const listCoursesController = new ListCoursesController();
 const authenticateStudentController = new AuthenticateStudentController();
 
-router.post("/aluno", createAlunoController.handle);
-router.post("/curso", createCursoController.handle);
-router.post("/inscricao", createInscricaoController.handle);
-router.get("/aluno/:id", findAlunoController.handle);
-router.get("/curso/:id", findCursoController.handle);
-router.get("/alunos", listAlunosController.handle);
-router.get("/cursos", ensureAuthenticated,listCursosController.handle);
+router.post("/aluno", createStudentController.handle);
+router.post("/curso", createCourseController.handle);
+router.post("/inscricao", createEnrollmentController.handle);
+router.get("/aluno/:id", findStudentController.handle);
+router.get("/curso/:id", findCourseController.handle);
+router.get("/alunos", listStudentsController.handle);
+router.get("/cursos", ensureAuthenticated,listCoursesController.handle);
 router.post("/login", authenticateStudentController.handle);
 
 export { router };
