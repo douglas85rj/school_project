@@ -15,7 +15,9 @@ model aluno {
   nome      String
   email     String   @unique
   password  String
-  refreshToken RefreshToken?
+  refreshToken  RefreshToken []
+  
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
     
@@ -26,7 +28,7 @@ model aluno {
 model curso {
   id        String      @id @default(uuid())
   nome      String
-  descricao String
+  descricao String      
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -49,8 +51,7 @@ model RefreshToken {
   id        String      @id @default(uuid())
   expiresIn Int 
   aluno     aluno    @relation(fields: [alunoId], references: [id])
-  alunoId   String      @unique
- 
+  alunoId   String     
 
   @@map("refresh_tokens")
 
