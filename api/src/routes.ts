@@ -1,41 +1,33 @@
 import { Router } from "express";
 
- import { CreateAlunoController } from "./controllers/CreateAlunoController";
- import { CreateCursoController } from "./controllers/CreateCursoController";
- import { CreateInscricaoController } from "./controllers/CreateInscricaoController";
- import { FindAlunoController } from "./controllers/FindAlunoController";
- import { FindCursoController } from "./controllers/FindCursoController"; 
- import { LisAlunosController } from "./controllers/ListAlunosController";
- import { ListCursosController } from "./controllers/ListCursosController";
+import { CreateAlunoController } from "./controllers/CreateAlunoController";
+import { CreateCursoController } from "./controllers/CreateCursoController";
+import { CreateInscricaoController } from "./controllers/CreateInscricaoController";
+import { FindAlunoController } from "./controllers/FindAlunoController";
+import { FindCursoController } from "./controllers/FindCursoController";
+import { LisAlunosController } from "./controllers/ListAlunosController";
+import { ListCursosController } from "./controllers/ListCursosController";
+import { AuthenticateStudentController } from "./controllers/AuthenticateStudentController";
 
 //
- const router = Router();
+const router = Router();
 
- const createAlunoController = new CreateAlunoController();
- const createCursoController = new CreateCursoController();
- const createInscricaoController = new CreateInscricaoController();
- const findAlunoController = new FindAlunoController();
- const findCursoController = new FindCursoController();
- const listAlunosController = new LisAlunosController();
- const listCursosController = new ListCursosController();
+const createAlunoController = new CreateAlunoController();
+const createCursoController = new CreateCursoController();
+const createInscricaoController = new CreateInscricaoController();
+const findAlunoController = new FindAlunoController();
+const findCursoController = new FindCursoController();
+const listAlunosController = new LisAlunosController();
+const listCursosController = new ListCursosController();
+const authenticateStudentController = new AuthenticateStudentController();
 
-
- router.post("/aluno", createAlunoController.handle); 
- router.post("/curso", createCursoController.handle); 
- router.post("/inscricao", createInscricaoController.handle);
- router.get("/aluno/:id", findAlunoController.handle); 
- router.get("/curso/:id", findCursoController.handle);
- router.get("/alunos", listAlunosController.handle);
- router.get("/cursos", listCursosController.handle);
-
+router.post("/aluno", createAlunoController.handle);
+router.post("/curso", createCursoController.handle);
+router.post("/inscricao", createInscricaoController.handle);
+router.get("/aluno/:id", findAlunoController.handle);
+router.get("/curso/:id", findCursoController.handle);
+router.get("/alunos", listAlunosController.handle);
+router.get("/cursos", listCursosController.handle);
+router.post("/login", authenticateStudentController.handle);
 
 export { router };
-
-
-
-
-
-
-
-
-
