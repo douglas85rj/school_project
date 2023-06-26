@@ -8,7 +8,7 @@ class GenerateTokenProvider {
   async execute(alunoId: string) {
     const token = sign({}, 'JWT_SECRET', {
       subject: alunoId,
-      expiresIn: "20s",
+      expiresIn: "600s",
     });
 
     return token;
