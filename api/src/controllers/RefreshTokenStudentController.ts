@@ -1,14 +1,14 @@
-import { RefreshTokenStudent } from "../useCases/RefreshTokenStudent";
+import { RefreshTokenStudent } from "../../src/useCases/refreshTokenStudent";
 import { Request, Response } from "express";
 
 
 class RefreshTokenStudentController {
   async handle(request: Request, response: Response) {
-    const { refreshToken } = request.body;
+    const { refresh_token } = request.body;
 
-    const refreshTokenStudent = new RefreshTokenStudent();
+    const refreshTokenSudent = new RefreshTokenStudent();
 
-    const token = await refreshTokenStudent.execute(refreshToken);
+    const token = await refreshTokenSudent.execute(refresh_token);
 
     return response.json(token);
   }
