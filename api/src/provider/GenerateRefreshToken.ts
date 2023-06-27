@@ -6,7 +6,7 @@ import dayjs from "dayjs";
 class GenerateRefreshToken {
     async execute(alunoId: string) {
     
-    const expiresIn = dayjs().add(15, "second").unix();
+    const expiresIn = dayjs().add(400, "second").unix();
     const generateRefreshToken = await prismaClient.refreshToken.create({
         data: {
             alunoId,

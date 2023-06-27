@@ -9,7 +9,10 @@ export class FindStudentController {
 
     const aluno = await prismaClient.aluno.findFirst({
       where: {
-        id: Number(id),
+       
+        id: String(id),
+
+
       },
       include: {
         inscricao: {

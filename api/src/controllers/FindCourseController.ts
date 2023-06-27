@@ -9,7 +9,7 @@ export class FindCourseController {
 
         const curso = await prisma.curso.findFirst({
             where: {
-                id: Number(id),
+                id: String(id),
             },
             include: {
                 inscricao: {

@@ -1,7 +1,7 @@
 import { prismaClient } from "../database/prismaClient";
 import { compare } from "bcryptjs";
-import { GenerateTokenProvider } from "../provider/GenerateTokenProvider";
-import { GenerateRefreshToken } from "../provider/GenerateRefreshToken";
+import { GenerateTokenProvider } from "@provider/GenerateTokenProvider";
+import { GenerateRefreshToken } from "@provider/GenerateRefreshToken";
 
 const JWT_SECRET = process.env.JWT_SECRET;
 //console.log(process.env.JWT_SECRET);
