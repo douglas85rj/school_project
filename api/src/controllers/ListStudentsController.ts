@@ -11,7 +11,7 @@ export class ListStudentsController {
                 include: {
                     inscricao: {
                         include: {
-                            curso: false,
+                            curso: true,
                         },
                     },
                 },
