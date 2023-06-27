@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { AuthenticateStudentCase } from "../useCases/AuthenticateStudentCase";
+import { AuthenticateStudentCase } from "@useCases/AuthenticateStudentCase";
 
 
 class AuthenticateStudentController {

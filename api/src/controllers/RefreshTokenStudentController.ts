@@ -1,4 +1,4 @@
-import { RefreshTokenStudent } from "../../src/useCases/refreshTokenStudent";
+import { RefreshTokenStudent } from "@useCases/refreshTokenStudent";
 import { Request, Response } from "express";
 
 

@@ -1,15 +1,15 @@
 import { Router } from "express";
 
-import { CreateStudentController } from "./controllers/CreateStudentController";
-import { CreateCourseController } from "./controllers/CreateCourseController";
-import { CreateEnrollmentController } from "./controllers/CreateEnrollmentController";
-import { FindStudentController } from "./controllers/FindStudentController";
-import { FindCourseController } from "./controllers/FindCourseController";
-import { ListStudentsController } from "./controllers/ListStudentsController";
-import { ListCoursesController } from "./controllers/ListCoursesController";
-import { AuthenticateStudentController } from "./controllers/AuthenticateStudentController";
-import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
-import { RefreshTokenStudentController } from "./controllers/RefreshTokenStudentController";
+import { CreateStudentController } from "@controllers/CreateStudentController";
+import { CreateCourseController } from "@controllers/CreateCourseController";
+import { CreateEnrollmentController } from "@controllers/CreateEnrollmentController";
+import { FindStudentController } from "@controllers/FindStudentController";
+import { FindCourseController } from "@controllers/FindCourseController";
+import { ListStudentsController } from "@controllers/ListStudentsController";
+import { ListCoursesController } from "@controllers/ListCoursesController";
+import { AuthenticateStudentController } from "@controllers/AuthenticateStudentController";
+import { ensureAuthenticated } from "@middlewares/ensureAuthenticated";
+import { RefreshTokenStudentController } from "@controllers/RefreshTokenStudentController";
 
 //
 const router = Router();

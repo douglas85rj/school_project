@@ -4,7 +4,7 @@
   "description": "Gestão escolar",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --exit-child --transpile-only --ignore-watch node_modules src/server.ts",
+    "dev": "ts-node-dev -r tsconfig-paths/register --exit-child --transpile-only --ignore-watch node_modules src/server.ts",
     "prisma": "npx prisma migrate dev --name init --preview-feature",
     "prisma:generate": "npx prisma generate",
     "prisma:studio": "npx prisma studio",
@@ -23,7 +23,8 @@
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/jsonwebtoken": "^9.0.2",
-    "prisma": "^4.15.0"
+    "prisma": "^4.15.0",
+    "tsconfig-paths": "^4.2.0"
   },
   "dependencies": {
     "@prisma/client": "^4.15.0",

@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import { CreateStudentCase } from "../useCases/CreateStudentCase";
+import { CreateStudentCase } from "@useCases/CreateStudentCase";
 
 export class CreateStudentController {
   async handle(request: Request, response: Response) {
