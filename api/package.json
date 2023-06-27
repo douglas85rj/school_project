@@ -4,7 +4,7 @@
   "description": "Gestão escolar",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register src/server.ts",
+    "dev": "ts-node-dev -r tsconfig-paths/register --exit-child --transpile-only --ignore-watch node_modules  src/server.ts",
     "prisma": "npx prisma migrate dev --name init --preview-feature",
     "prisma:generate": "npx prisma generate",
     "prisma:studio": "npx prisma studio",
