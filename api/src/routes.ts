@@ -10,7 +10,7 @@ import { ListCoursesController } from "@controllers/ListCoursesController";
 import { AuthenticateStudentController } from "@controllers/AuthenticateStudentController";
 import { ensureAuthenticated } from "@middlewares/ensureAuthenticated";
 import { RefreshTokenStudentController } from "@controllers/RefreshTokenStudentController";
-
+import { CancelEnrollmentController } from "@controllers/CancelEnrollmentController";
 //
 const router = Router();
 
@@ -23,6 +23,7 @@ const listStudentsController = new ListStudentsController();
 const listCoursesController = new ListCoursesController();
 const authenticateStudentController = new AuthenticateStudentController();
 const refreshTokenStudentController = new RefreshTokenStudentController();
+const cancelEnrollmentController = new CancelEnrollmentController();
 
 router.post("/aluno", createStudentController.handle);
 router.post("/curso", createCourseController.handle);
@@ -33,5 +34,6 @@ router.get("/alunos", listStudentsController.handle);
 router.get("/cursos", ensureAuthenticated,listCoursesController.handle);
 router.post("/login", authenticateStudentController.handle);
 router.post("/refresh-token", refreshTokenStudentController.handle);
+router.patch("/cancelar-inscricao", cancelEnrollmentController.handle);
 
 export { router };

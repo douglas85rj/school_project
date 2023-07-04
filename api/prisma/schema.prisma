@@ -3,6 +3,8 @@
 
 generator client {
   provider = "prisma-client-js"
+  preview = ["selectRelationCount"] // or ["selectRelationCount"]
+
 }
 
 datasource db {
@@ -16,8 +18,6 @@ model aluno {
   email     String   @unique
   password  String
   refreshToken  RefreshToken []
-  
-
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
     
